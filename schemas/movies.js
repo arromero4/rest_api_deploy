@@ -1,4 +1,4 @@
-const z = require('zod');
+import z from 'zod';
 
 const movieSchema = z.object({
         title: z.string({
@@ -20,15 +20,11 @@ const movieSchema = z.object({
     })
 
 
-  function validateMovie(movie) {
+  export function validateMovie(movie) {
     return movieSchema.safeParse(movie);
   }
 
-  function validatePartialMovie(movie) {
+  export function validatePartialMovie(movie) {
     return movieSchema.partial().safeParse(movie);
   }
 
-module.exports = {
-    validateMovie,
-    validatePartialMovie,
-}
